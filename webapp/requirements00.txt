@@ -1,5 +1,0 @@
-gunicorn
-requests
-Flask
-Jinja2
-Werkzeug

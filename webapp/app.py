@@ -16,8 +16,8 @@ def convert(value):
 
 app = Flask(__name__)
 FB_API_URL = 'https://graph.facebook.com/v2.6/me/messages'
-VERIFY_TOKEN='tlsgus'
-PAGE_ACCESS_TOKEN='EAAIWnkVn7twBAJX26aKy9oWYZBK9kIfPDWuOYPs7H1ptlgkXzLEo4mfZB7lgkCyQuaZB7JqujynFUqDfGofqFAnSYHvkXVQOpc5FvZAal5cbpyQjowPN8v7MuaKpq5NZBXcHZAfyZChn8lh4lgicq9vWs7EWzVFSZCkVdeKOtEW0sgZDZD'
+VERIFY_TOKEN='your token'
+PAGE_ACCESS_TOKEN='very long access token'
 
 # Available functions 2020.11.24
 avail_fs = 'Available functions : ' + '\n' \

@@ -10,6 +10,16 @@ will calculate flame temperature at 300K temperature, 101.325kPa pressure, with 
 
 ![sample](https://github.com/shaunkim/cantera-chatbot/blob/master/webapp/img/aft_sample.jpg "sample")
 
+## Available functions
+- **/jeta** : Jet A (A2, POSF10325)
+- **/jp8** : JP-8 (A1, POSF10264)
+- **/jp10** : JP-10 
+- **/methane** : CH4 (using GRI-Mech 3.0)
+- **/ethylene** : C2H4
+- **/hydrogen** : H2
+- **/syngas** : Choose up to 3 species with mole fraction
+- **/yplus** : Y+ wall distance calculator like [https://www.cfd-online.com/Tools/yplus.php](https://www.cfd-online.com/Tools/yplus.php)
+
 ## Build your own chatbot
 - Requirement
   - Heroku CLI tool: https://devcenter.heroku.com/articles/heroku-cli#install-the-heroku-cli

@@ -1,6 +1,6 @@
 # cantera-chatbot
 
-> Facebook chatbot on Heroku server using Miniconda3 and Cantera-2.4
+> Facebook chatbot on Heroku server using Miniconda3 and Cantera-2.5
 
 [m.me/cantera.chatbot](m.me/cantera.chatbot)
 
@@ -27,7 +27,7 @@ $ git clone https://github.com/shaunkim/cantera-chatbot.git
 $ heroku container:push web
 $ heroku container:release web
 ```
-- Check if your heroku server is alive. Should display "hello from cantera-chatbot feat. NumPy1.18.5 and Cantera 2.5.1" like [cantera-chatbot01.herokuapp.com](cantera-chatbot01.herokuapp.com)
+- Check if your heroku server is alive. Should display "hello from cantera-chatbot feat. NumPy1.18.5 and Cantera 2.5.1" like [cantera-chatbot-01.herokuapp.com](cantera-chatbot-01.herokuapp.com)
 - Submit an app review on Meta Developer Tools to allow chatbot to message other people
 
 ## Reference

@@ -27,6 +27,7 @@ avail_fs = 'Available functions : ' + '\n' \
 '/methane : Adiabatic flame temperature (CH4)' + '\n' \
 '/ethylene : Adiabatic flame temperature (C2H4)' + '\n' \
 '/hydrogen : Adiabatic flame temperature (H2)' + '\n' \
+'/syngas : Adiabatic flame temperature (3 fuels)' + '\n' \
 '/yplus : Y+ wall distance estimation'
 
 def send_message(recipient_id, text):
@@ -361,6 +362,7 @@ def get_bot_response(message):
 
                 gas.TPX = tpaf[0], tpaf[1]*1000., Xstring
                 gas.equilibrate("HP")
+                Eqv = gas.equivalence_ratio()
 
                 T4 = gas.T
                 T4_message = 'Syngas flame temperature: ' + str.format('{0:.4f}',T4) + ' [K]' \
@@ -368,7 +370,8 @@ def get_bot_response(message):
                             'T[K], P[kPa], Wa[kg/s], Wf[kg/s]' +'\n'+ \
                             str(tpaf[:4])+'\n' + \
                             'Fuel composition :' + '\n' +\
-                            fuel_string
+                            fuel_string + '\n' + \
+                            'Eqv Ratio: {0:1.4f}'.format(Eqv)
                 return T4_message
 
             else:

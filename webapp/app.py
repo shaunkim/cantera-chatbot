@@ -350,17 +350,23 @@ def get_bot_response(message):
 
                 tpaf = list(map(float, data[7:]))
 
-
-
                 #GRI-3.0 Mech
                 gas = ct.Solution('gri30.cti')
-                Xo2 = 0.21*tpaf[2]
-                Xn2 = 0.79*tpaf[2]
-
+                Yo2 = 0.21*tpaf[2]
+                Yn2 = 0.79*tpaf[2]
+                
+                # Fuel composition is in mole fraction (vol.)
                 fuel_string = data[1].upper()+":" + str(convert(data[4])*tpaf[3])+", " + data[2].upper()+":"  + str(convert(data[5])*tpaf[3])+ ", "+ data[3].upper()+ " :" + str(convert(data[6])*tpaf[3])
-                Xstring="O2:"+ str(Xo2) +", N2:"+ str(Xn2) + ", "+ fuel_string
+                fuel = ct.Solution('gri30.cti')
+                fuel.TPX = tpaf[0], tpaf[1]*1000., fuel_string
 
-                gas.TPX = tpaf[0], tpaf[1]*1000., Xstring
+                fuel_stringY =  data[1].upper()+":" + str(convert(data[4])*tpaf[3] * (fuel.molecular_weights[fuel.species_index(data[1].upper())]/fuel.mean_molecular_weight) )+ ", " + \
+                                data[2].upper()+":" + str(convert(data[5])*tpaf[3] * (fuel.molecular_weights[fuel.species_index(data[2].upper())]/fuel.mean_molecular_weight) )+ ", "+    \
+                                data[3].upper()+":" + str(convert(data[6])*tpaf[3] * (fuel.molecular_weights[fuel.species_index(data[3].upper())]/fuel.mean_molecular_weight) )
+
+                Ystring="O2:"+ str(Yo2) +", N2:"+ str(Yn2) + ", "+ fuel_stringY
+    
+                gas.TPY = tpaf[0], tpaf[1]*1000., Ystring
                 gas.equilibrate("HP")
                 Eqv = gas.equivalence_ratio()
 
@@ -369,7 +375,7 @@ def get_bot_response(message):
                             +'\n'+ '\n'+ \
                             'T[K], P[kPa], Wa[kg/s], Wf[kg/s]' +'\n'+ \
                             str(tpaf[:4])+'\n' + \
-                            'Fuel composition :' + '\n' +\
+                            'Fuel composition (vol.) :' + '\n' +\
                             fuel_string + '\n' + \
                             'Eqv Ratio: {0:1.4f}'.format(Eqv)
                 return T4_message

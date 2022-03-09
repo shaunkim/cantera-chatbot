@@ -4,6 +4,8 @@
 
 [m.me/cantera.chatbot](m.me/cantera.chatbot)
 
+[![Watch the video](https://img.youtube.com/vi/YOUTUBE_sT9sTux4E1k/0.jpg)](https://www.youtube.com/watch?v=sT9sTux4E1k)
+
 Send a message to calculate adiabatic flame temperature.
 "/jeta 300 101.325 10 0.5"
 will calculate flame temperature at 300K temperature, 101.325kPa pressure, with 10kg/s of air and 0.5kg/s of fuel (Jet-A, kerosene).
